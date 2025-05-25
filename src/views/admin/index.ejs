@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<%- include('../partials/header')%>
+
+  <body>
+    <%- include('../partials/navigation')%>
+
+      <%- include('../partials/sidebar')%>
+
+        <div class="main-container">
+          <div class="xs-pd-20-10 pd-ltr-20">
+            <div class="title pb-20">
+              <h2 class="h3 mb-0">Current Users</h2>
+            </div>
+            <div class="card-box pb-10">
+              <div class="h5 pd-20 mb-0">Recent Users</div>
+              <table class="data-table table nowrap">
+                <thead>
+                  <tr>
+                    <th class="table-plus">Username</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Phone</th>
+                    <th>Create Date</th>
+                    <th>Permission</th>
+                    <th class="datatable-nosort">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="table-plus">
+                      <div class="name-avatar d-flex align-items-center">
+                        <div class="avatar mr-2 flex-shrink-0">
+                          <img src="/uploads/noimage.png" class="border-radius-100 shadow" width="40" height="40"
+                            alt="">
+                        </div>
+                        <div class="txt">
+                          <div class="weight-600">Empty ...!</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="badge badge-pill" data-bgcolor="#e7ebf5" data-color="#265ed7"></span></td>
+                    <td>
+                      <div class="dropdown">
+                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#"
+                          role="button" data-toggle="dropdown">
+                          <i class="dw dw-more"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                          <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+                          <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
+                          <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="title pb-20 pt-20">
+            </div>
+            <%- include('../partials/footer')%>
+          </div>
+        </div>
+
+        <%- include('../partials/script')%>
+  </body>
+
+</html>

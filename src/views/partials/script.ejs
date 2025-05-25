@@ -1,0 +1,84 @@
+<!-- js -->
+<script src="/admin/vendors/scripts/core.js"></script>
+<script src="/admin/vendors/scripts/script.min.js"></script>
+<script src="/admin/vendors/scripts/process.js"></script>
+<script src="/admin/vendors/scripts/layout-settings.js"></script>
+<script src="/admin/src/plugins/apexcharts/apexcharts.min.js"></script>
+<script src="/admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script src="/admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+<script src="/admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+<script src="/admin/vendors/scripts/dashboard3.js"></script>
+<!-- Slick Slider js -->
+<script src="/admin/src/plugins/slick/slick.min.js"></script>
+<!-- bootstrap-touchspin js -->
+<script src="/admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="/admin/src/plugins/dropzone/src/dropzone.js"></script>
+<script src="/admin/src/plugins/dropzone/src/dropzone.js"></script>
+
+<script>
+  Dropzone.autoDiscover = false;
+  $(".dropzone").dropzone({
+    addRemoveLinks: true,
+    removedfile: function (file) {
+      var name = file.name;
+      var _ref;
+      return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+    }
+  });
+
+  window.addEventListener('DOMContentLoaded', function () {
+    var image = document.getElementById('image');
+    var cropBoxData;
+    var canvasData;
+    var cropper;
+
+    $('#modal').on('shown.bs.modal', function () {
+      cropper = new Cropper(image, {
+        autoCropArea: 0.5,
+        dragMode: 'move',
+        aspectRatio: 3 / 3,
+        restore: false,
+        guides: false,
+        center: false,
+        highlight: false,
+        cropBoxMovable: false,
+        cropBoxResizable: false,
+        toggleDragModeOnDblclick: false,
+        ready: function () {
+          cropper.setCropBoxData(cropBoxData).setCanvasData(canvasData);
+        }
+      });
+    }).on('hidden.bs.modal', function () {
+      cropBoxData = cropper.getCropBoxData();
+      canvasData = cropper.getCanvasData();
+      cropper.destroy();
+    });
+  });
+
+  jQuery(document).ready(function () {
+    jQuery('.product-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      infinite: true,
+      speed: 1000,
+      fade: true,
+      asNavFor: '.product-slider-nav'
+    });
+    jQuery('.product-slider-nav').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.product-slider',
+      dots: false,
+      infinite: true,
+      arrows: false,
+      speed: 1000,
+      centerMode: true,
+      focusOnSelect: true
+    });
+    $("input[name='demo3_22']").TouchSpin({
+      initval: 1
+    });
+  });
+</script>

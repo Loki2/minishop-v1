@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/header')%>
+
+  <body class="login-page">
+    <div class="login-header box-shadow">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="brand-logo">
+          <a href="/" data-color="#10c942">
+            Mini-Shop
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-lg-12">
+            <div class="login-box bg-white box-shadow border-radius-10">
+              <div class="login-title">
+                <h2 class="text-center text-primary">ລັອກອິນເພື່ອເຂົາໃຊ້ບໍລິການ</h2>
+              </div>
+              <form action="/auth/login" method="POST">
+                <div class="input-group custom">
+                  <input type="text" name="username" class="form-control form-control-lg" placeholder="Username"
+                    required>
+                  <div class="input-group-append custom">
+                    <span class="input-group-text"><i class="icon-copy dw dw-mail"></i></span>
+                  </div>
+                </div>
+                <div class="input-group custom">
+                  <input type="password" name="password" class="form-control form-control-lg" placeholder="**********"
+                    required>
+                  <div class="input-group-append custom">
+                    <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+                  </div>
+                </div>
+
+
+
+                <div class="row pb-30">
+                  <div class="col-6">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="remember" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label" for="customCheck1">Remember</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="forgot-password"><a href="#">Forgot Password</a></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="input-group mb-0">
+                      <input class="btn btn-warning btn-lg btn-block" type="submit" value="Login">
+                    </div>
+                    <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
+                    <div class="input-group mb-0">
+                      <a class="btn btn-outline-warning btn-lg btn-block" href="/auth/register">Create New User!</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('./partials/script')%>
+  </body>
+
+</html>
