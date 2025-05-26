@@ -1,5 +1,4 @@
 const Product = require("../models/product");
-const Service = require("../models/Service");
 const mkdirp = require("mkdirp");
 
 
@@ -7,7 +6,7 @@ exports.get_products = async (req, res, next) => {
   try {
     const products = await Product.find({}).sort({ createdAt: -1 })
 
-    res.render('admin/product/index', {
+    res.render('admin/products/index', {
       products: products
     })
   } catch (error) {
@@ -17,10 +16,8 @@ exports.get_products = async (req, res, next) => {
 
 exports.get_createProduct = async (req, res, next) => {
   try {
-    const services = await Service.find({}).sort({ createdAt: -1 })
-
-    res.render('admin/product/create', {
-      services: services
+    res.render('admin/products/create', {
+      title: "Create Product",
     })
   } catch (error) {
     next(error);
@@ -29,22 +26,29 @@ exports.get_createProduct = async (req, res, next) => {
 
 exports.post_createProduct = async (req, res, next) => {
   try {
+    const user = res.locals.user;
     const imageFile = typeof req.files.productImage !== 'undefined' ? req.files.productImage.name : "";
-    const { code, name_lao, name_eng, desc, status } = req.body;
-    const category = req.body.service;
+    const { code, name, desc, category, stock_available, status } = req.body;
+
+    console.log(`req.body: ${JSON.stringify(req.body)}`);
+    console.log(`imageFile: ${imageFile}`);
+
+    console.log(`first`, user._id)
 
     const product = new Product({
       code: code,
-      name_lao: name_lao,
-      name_eng: name_eng,
+      name: name,
       desc: desc,
       image: imageFile,
       category: category,
-      status: status
+      stock_available: stock_available,
+      status: status,
+      createdBy: user._id,
     });
 
+
     await product.save(function (error) {
-      if (error) return console.log(error);
+      if (error) return console.error(error);
 
       mkdirp.sync('./public/uploads/images/products/' + product._id);
 
@@ -60,7 +64,7 @@ exports.post_createProduct = async (req, res, next) => {
       }
     });
 
-    res.redirect('/admin/products')
+    res.redirect('/admin/products');
   } catch (error) {
     next(error);
   }
