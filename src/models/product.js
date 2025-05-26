@@ -7,11 +7,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    name_lao: {
-      type: String,
-      required: true
-    },
-    name_eng: {
+    name: {
       type: String,
       required: true
     },
@@ -27,8 +23,17 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    stock_available: {
+      type: String,
+      required: true
+    },
     status: {
       type: String,
+      required: true
+    },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       required: true
     }
   },

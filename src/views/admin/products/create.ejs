@@ -31,17 +31,21 @@
 
                   <div class="col-md-5 col-sm-12">
                     <div class="form-group">
-                      <label>Product Name Lao*</label>
-                      <input type="text" name="name_lao" id="name_lao" class="form-control"
-                        placeholder="Product Name Lao..." required>
+                      <label>Product Name</label>
+                      <input type="text" name="name" id="name" class="form-control" placeholder="Product Name..."
+                        required>
                     </div>
                   </div>
 
                   <div class="col-md-5 col-sm-12">
                     <div class="form-group">
-                      <label>Product Name Eng*</label>
-                      <input type="text" name="name_eng" id="name_eng" class="form-control"
-                        placeholder="Product Name Eng..." required>
+                      <label>Select Category</label>
+                      <select class="custom-select2 form-control" name="category" style="width: 100%; height: 35px;">
+                        <option value="" selected disabled>-- Select Category --</option>
+                        <option value="For men">For men</option>
+                        <option value="For women">For women</option>
+                        <option value="Children">Children</option>
+                      </select>
                     </div>
                   </div>
 
@@ -63,19 +67,16 @@
                         accept="image/jpg, image/jpeg, image/png" required />
                     </div>
                   </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="form-group">
-                      <label>Select Category</label>
-                      <select class="custom-select2 form-control" name="service" style="width: 100%; height: 35px;">
-                        <option value="" selected disabled>-- Select Category --</option>
-                        <option value="service">Service</option>
-                        <option value="product">Product</option>
-                        <option value="other">Other</option>
 
-                      </select>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                      <label>Stock Available</label>
+                      <input type="number" name="stock_available" id="stock_available" class="form-control"
+                        placeholder="Stock Available..." required>
                     </div>
                   </div>
-                  <div class="col-md-2 col-sm-12">
+
+                  <div class="col-md-3 col-sm-12">
                     <div class="form-group">
                       <label>Status*</label>
                       <select class="custom-select2 form-control" name="status" id="status"
