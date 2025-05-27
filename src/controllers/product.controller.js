@@ -30,11 +30,6 @@ exports.post_createProduct = async (req, res, next) => {
     const imageFile = typeof req.files.productImage !== 'undefined' ? req.files.productImage.name : "";
     const { code, name, desc, category, stock_available, status } = req.body;
 
-    console.log(`req.body: ${JSON.stringify(req.body)}`);
-    console.log(`imageFile: ${imageFile}`);
-
-    console.log(`first`, user._id)
-
     const product = new Product({
       code: code,
       name: name,
